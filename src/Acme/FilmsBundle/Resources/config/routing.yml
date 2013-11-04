@@ -49,7 +49,7 @@ category_update:
 
 
 actor:
-    pattern:  /cctor
+    pattern:  /actor
     defaults: { _controller: AcmeFilmsBundle:Actor:index }
 actor_edit:
     pattern:  /actor/edit/{id}
