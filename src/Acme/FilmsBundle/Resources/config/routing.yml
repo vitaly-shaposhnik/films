@@ -1,5 +1,5 @@
 acme_films_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: AcmeFilmsBundle:Default:index }
 
 film:

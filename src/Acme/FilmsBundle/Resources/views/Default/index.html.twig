@@ -1,1 +1,26 @@
-Hello {{ name }}!
+{% extends 'AcmeFilmsBundle::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>Genre list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genres</th>
+                <th>Actors</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('film_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td>{{ entity.genres|join(',') }}</td>
+                <td>{{ entity.actors|join(',') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
