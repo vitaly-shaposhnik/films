@@ -1,0 +1,7 @@
+acme_films_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AcmeFilmsBundle:Default:index }
+
+#acme_films_add_comment:
+#    pattern:  /create
+#    defaults: { _controller: AcmeFilmsBundle:Default:create }
