@@ -186,4 +186,9 @@ class Film
     {
         return $this->genres;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

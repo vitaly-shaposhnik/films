@@ -106,4 +106,9 @@ class Category
     {
         return $this->films;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
