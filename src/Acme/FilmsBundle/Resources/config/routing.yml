@@ -2,6 +2,18 @@ acme_films_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: AcmeFilmsBundle:Default:index }
 
-#acme_films_add_comment:
-#    pattern:  /create
-#    defaults: { _controller: AcmeFilmsBundle:Default:create }
+acme_films_film:
+    pattern:  /film
+    defaults: { _controller: AcmeFilmsBundle:Film:index }
+
+acme_films_category:
+    pattern:  /Category
+    defaults: { _controller: AcmeFilmsBundle:Category:index }
+
+acme_films_actor:
+    pattern:  /Actor
+    defaults: { _controller: AcmeFilmsBundle:Actor:index }
+
+acme_films_genre:
+    pattern:  /Genre
+    defaults: { _controller: AcmeFilmsBundle:Genre:index }
