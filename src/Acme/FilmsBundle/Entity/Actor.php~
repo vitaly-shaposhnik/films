@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Actor
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Acme\FilmsBundle\Entity\ActorRepository")
  */
 class Actor
 {
