@@ -1,0 +1,94 @@
+acme_films_homepage:
+    pattern:  /
+    defaults: { _controller: AcmeFilmsBundle:Default:index }
+
+film:
+    pattern:  /film
+    defaults: { _controller: AcmeFilmsBundle:Film:index }
+film_edit:
+    pattern:  /film/edit/{id}
+    defaults: { _controller: AcmeFilmsBundle:Film:edit }
+film_new:
+    pattern:  /film/new
+    defaults: { _controller: AcmeFilmsBundle:Film:new }
+film_create:
+    pattern:  /film/create
+    defaults: { _controller: AcmeFilmsBundle:Film:create }
+film_show:
+    pattern:  /film/{id}
+    defaults: { _controller: AcmeFilmsBundle:Film:show }
+film_delete:
+    pattern:  /film/delete/{id}
+    defaults: { _controller: AcmeFilmsBundle:Film:delete }
+film_update:
+    pattern:  /film/update/{id}
+    defaults: { _controller: AcmeFilmsBundle:Film:update }
+
+
+category:
+    pattern:  /category
+    defaults: { _controller: AcmeFilmsBundle:Category:index }
+category_edit:
+    pattern:  /category/edit/{id}
+    defaults: { _controller: AcmeFilmsBundle:Category:edit }
+category_new:
+    pattern:  /category/new
+    defaults: { _controller: AcmeFilmsBundle:Category:new }
+category_create:
+    pattern:  /category/create
+    defaults: { _controller: AcmeFilmsBundle:Category:create }
+category_show:
+    pattern:  /category/{id}
+    defaults: { _controller: AcmeFilmsBundle:Category:show }
+category_delete:
+    pattern:  /category/delete/{id}
+    defaults: { _controller: AcmeFilmsBundle:Category:delete }
+category_update:
+    pattern:  /category/update/{id}
+    defaults: { _controller: AcmeFilmsBundle:Category:update }
+
+
+actor:
+    pattern:  /actor
+    defaults: { _controller: AcmeFilmsBundle:Actor:index }
+actor_edit:
+    pattern:  /actor/edit/{id}
+    defaults: { _controller: AcmeFilmsBundle:Actor:edit }
+actor_new:
+    pattern:  /actor/new
+    defaults: { _controller: AcmeFilmsBundle:Actor:new }
+actor_create:
+    pattern:  /actor/create
+    defaults: { _controller: AcmeFilmsBundle:Actor:create }
+actor_show:
+    pattern:  /actor/{id}
+    defaults: { _controller: AcmeFilmsBundle:Actor:show }
+actor_delete:
+    pattern:  /actor/delete/{id}
+    defaults: { _controller: AcmeFilmsBundle:Actor:delete }
+actor_update:
+    pattern:  /actor/update/{id}
+    defaults: { _controller: AcmeFilmsBundle:Actor:update }
+
+
+genre:
+    pattern:  /genre
+    defaults: { _controller: AcmeFilmsBundle:Genre:index }
+genre_edit:
+    pattern:  /genre/edit/{id}
+    defaults: { _controller: AcmeFilmsBundle:Genre:edit }
+genre_new:
+    pattern:  /genre/new
+    defaults: { _controller: AcmeFilmsBundle:Genre:new }
+genre_create:
+    pattern:  /genre/create
+    defaults: { _controller: AcmeFilmsBundle:Genre:create }
+genre_show:
+    pattern:  /genre/{id}
+    defaults: { _controller: AcmeFilmsBundle:Genre:show }
+genre_delete:
+    pattern:  /genre/delete/{id}
+    defaults: { _controller: AcmeFilmsBundle:Genre:delete }
+genre_update:
+    pattern:  /genre/update/{id}
+    defaults: { _controller: AcmeFilmsBundle:Genre:update }
