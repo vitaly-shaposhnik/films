@@ -3,15 +3,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        {#<title></title>#}
     </head>
 
     <body>
         <nav>
-            <a href="/">Главная</a> |
-            <a href="/film">Фильмы</a> |
-            <a href="/actor">Актеры</a> |
-            <a href="/genre">Жанры</a>
+            <a href="{{ path('acme_films_homepage') }}">Главная</a> |
+            <a href="{{ path('film') }}">Фильмы</a> |
+            <a href="{{ path('actor') }}">Актеры</a> |
+            <a href="{{ path('genre') }}">Жанры</a>
         </nav>
 
         {% block body -%}{% endblock %}
