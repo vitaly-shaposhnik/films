@@ -12,8 +12,6 @@ use Acme\FilmsBundle\Form\GenreType;
 
 /**
  * Genre controller.
- *
- * @Route("/genre")
  */
 class GenreController extends Controller
 {
@@ -21,8 +19,6 @@ class GenreController extends Controller
     /**
      * Lists all Genre entities.
      *
-     * @Route("/", name="genre")
-     * @Method("GET")
      * @Template()
      */
     public function indexAction()
@@ -38,8 +34,6 @@ class GenreController extends Controller
     /**
      * Creates a new Genre entity.
      *
-     * @Route("/", name="genre_create")
-     * @Method("POST")
      * @Template("AcmeFilmsBundle:Genre:new.html.twig")
      */
     public function createAction(Request $request)
@@ -84,8 +78,6 @@ class GenreController extends Controller
     /**
      * Displays a form to create a new Genre entity.
      *
-     * @Route("/new", name="genre_new")
-     * @Method("GET")
      * @Template()
      */
     public function newAction()
@@ -102,8 +94,6 @@ class GenreController extends Controller
     /**
      * Finds and displays a Genre entity.
      *
-     * @Route("/{id}", name="genre_show")
-     * @Method("GET")
      * @Template()
      */
     public function showAction($id)
@@ -127,8 +117,6 @@ class GenreController extends Controller
     /**
      * Displays a form to edit an existing Genre entity.
      *
-     * @Route("/{id}/edit", name="genre_edit")
-     * @Method("GET")
      * @Template()
      */
     public function editAction($id)
@@ -172,8 +160,6 @@ class GenreController extends Controller
     /**
      * Edits an existing Genre entity.
      *
-     * @Route("/{id}", name="genre_update")
-     * @Method("PUT")
      * @Template("AcmeFilmsBundle:Genre:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -204,9 +190,6 @@ class GenreController extends Controller
     }
     /**
      * Deletes a Genre entity.
-     *
-     * @Route("/{id}", name="genre_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

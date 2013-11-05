@@ -12,8 +12,6 @@ use Acme\FilmsBundle\Form\CategoryType;
 
 /**
  * Category controller.
- *
- * @Route("/category")
  */
 class CategoryController extends Controller
 {
@@ -21,8 +19,6 @@ class CategoryController extends Controller
     /**
      * Lists all Category entities.
      *
-     * @Route("/", name="category")
-     * @Method("GET")
      * @Template()
      */
     public function indexAction()
@@ -38,8 +34,6 @@ class CategoryController extends Controller
     /**
      * Creates a new Category entity.
      *
-     * @Route("/", name="category_create")
-     * @Method("POST")
      * @Template("AcmeFilmsBundle:Category:new.html.twig")
      */
     public function createAction(Request $request)
@@ -84,8 +78,6 @@ class CategoryController extends Controller
     /**
      * Displays a form to create a new Category entity.
      *
-     * @Route("/new", name="category_new")
-     * @Method("GET")
      * @Template()
      */
     public function newAction()
@@ -102,8 +94,6 @@ class CategoryController extends Controller
     /**
      * Finds and displays a Category entity.
      *
-     * @Route("/{id}", name="category_show")
-     * @Method("GET")
      * @Template()
      */
     public function showAction($id)
@@ -127,8 +117,6 @@ class CategoryController extends Controller
     /**
      * Displays a form to edit an existing Category entity.
      *
-     * @Route("/{id}/edit", name="category_edit")
-     * @Method("GET")
      * @Template()
      */
     public function editAction($id)
@@ -172,8 +160,6 @@ class CategoryController extends Controller
     /**
      * Edits an existing Category entity.
      *
-     * @Route("/{id}", name="category_update")
-     * @Method("PUT")
      * @Template("AcmeFilmsBundle:Category:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -204,9 +190,6 @@ class CategoryController extends Controller
     }
     /**
      * Deletes a Category entity.
-     *
-     * @Route("/{id}", name="category_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

@@ -5,90 +5,115 @@ acme_films_homepage:
 film:
     pattern:  /film
     defaults: { _controller: AcmeFilmsBundle:Film:index }
+    methods:  [GET]
 film_edit:
-    pattern:  /film/edit/{id}
+    pattern:  /film/{id}/edit
     defaults: { _controller: AcmeFilmsBundle:Film:edit }
+    methods:  [GET]
 film_new:
     pattern:  /film/new
     defaults: { _controller: AcmeFilmsBundle:Film:new }
+    methods:  [GET]
 film_create:
-    pattern:  /film/create
+    pattern:  /film
     defaults: { _controller: AcmeFilmsBundle:Film:create }
+    methods:  [POST]
 film_show:
     pattern:  /film/{id}
     defaults: { _controller: AcmeFilmsBundle:Film:show }
+    methods:  [GET]
 film_delete:
-    pattern:  /film/delete/{id}
+    pattern:  /film/{id}
     defaults: { _controller: AcmeFilmsBundle:Film:delete }
+    methods:  [DELETE]
 film_update:
-    pattern:  /film/update/{id}
+    pattern:  /film/{id}
     defaults: { _controller: AcmeFilmsBundle:Film:update }
-
+    methods:  [PUT]
 
 category:
     pattern:  /category
     defaults: { _controller: AcmeFilmsBundle:Category:index }
+    methods:  [GET]
 category_edit:
-    pattern:  /category/edit/{id}
+    pattern:  /category/{id}/edit
     defaults: { _controller: AcmeFilmsBundle:Category:edit }
+    methods:  [GET]
 category_new:
     pattern:  /category/new
     defaults: { _controller: AcmeFilmsBundle:Category:new }
+    methods:  [GET]
 category_create:
-    pattern:  /category/create
+    pattern:  /category
     defaults: { _controller: AcmeFilmsBundle:Category:create }
+    methods:  [POST]
 category_show:
     pattern:  /category/{id}
     defaults: { _controller: AcmeFilmsBundle:Category:show }
+    methods:  [GET]
 category_delete:
-    pattern:  /category/delete/{id}
+    pattern:  /category/{id}
     defaults: { _controller: AcmeFilmsBundle:Category:delete }
+    methods:  [DELETE]
 category_update:
-    pattern:  /category/update/{id}
+    pattern:  /category/{id}
     defaults: { _controller: AcmeFilmsBundle:Category:update }
-
+    methods:  [PUT]
 
 actor:
     pattern:  /actor
     defaults: { _controller: AcmeFilmsBundle:Actor:index }
+    methods:  [GET]
 actor_edit:
-    pattern:  /actor/edit/{id}
+    pattern:  /actor/{id}/edit
     defaults: { _controller: AcmeFilmsBundle:Actor:edit }
+    methods:  [GET]
 actor_new:
     pattern:  /actor/new
     defaults: { _controller: AcmeFilmsBundle:Actor:new }
+    methods:  [GET]
 actor_create:
-    pattern:  /actor/create
+    pattern:  /actor
     defaults: { _controller: AcmeFilmsBundle:Actor:create }
+    methods:  [POST]
 actor_show:
     pattern:  /actor/{id}
     defaults: { _controller: AcmeFilmsBundle:Actor:show }
+    methods:  [GET]
 actor_delete:
-    pattern:  /actor/delete/{id}
+    pattern:  /actor/{id}
     defaults: { _controller: AcmeFilmsBundle:Actor:delete }
+    methods:  [DELETE]
 actor_update:
-    pattern:  /actor/update/{id}
+    pattern:  /actor/{id}
     defaults: { _controller: AcmeFilmsBundle:Actor:update }
-
+    methods:  [PUT]
 
 genre:
     pattern:  /genre
     defaults: { _controller: AcmeFilmsBundle:Genre:index }
+    methods:  [GET]
 genre_edit:
-    pattern:  /genre/edit/{id}
+    pattern:  /genre/{id}/edit
     defaults: { _controller: AcmeFilmsBundle:Genre:edit }
+    methods:  [GET]
 genre_new:
     pattern:  /genre/new
     defaults: { _controller: AcmeFilmsBundle:Genre:new }
+    methods:  [GET]
 genre_create:
-    pattern:  /genre/create
+    pattern:  /genre
     defaults: { _controller: AcmeFilmsBundle:Genre:create }
+    methods:  [POST]
 genre_show:
     pattern:  /genre/{id}
     defaults: { _controller: AcmeFilmsBundle:Genre:show }
+    methods:  [GET]
 genre_delete:
-    pattern:  /genre/delete/{id}
+    pattern:  /genre/{id}
     defaults: { _controller: AcmeFilmsBundle:Genre:delete }
+    methods:  [DELETE]
 genre_update:
-    pattern:  /genre/update/{id}
+    pattern:  /genre/{id}
     defaults: { _controller: AcmeFilmsBundle:Genre:update }
+    methods:  [PUT]
