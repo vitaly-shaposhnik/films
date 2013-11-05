@@ -12,8 +12,6 @@ use Acme\FilmsBundle\Form\FilmType;
 
 /**
  * Film controller.
- *
- * @Route("/film")
  */
 class FilmController extends Controller
 {
@@ -21,8 +19,6 @@ class FilmController extends Controller
     /**
      * Lists all Film entities.
      *
-     * @Route("/", name="film")
-     * @Method("GET")
      * @Template()
      */
     public function indexAction()
@@ -38,8 +34,6 @@ class FilmController extends Controller
     /**
      * Creates a new Film entity.
      *
-     * @Route("/", name="film_create")
-     * @Method("POST")
      * @Template("AcmeFilmsBundle:Film:new.html.twig")
      */
     public function createAction(Request $request)
@@ -84,8 +78,6 @@ class FilmController extends Controller
     /**
      * Displays a form to create a new Film entity.
      *
-     * @Route("/new", name="film_new")
-     * @Method("GET")
      * @Template()
      */
     public function newAction()
@@ -102,8 +94,6 @@ class FilmController extends Controller
     /**
      * Finds and displays a Film entity.
      *
-     * @Route("/{id}", name="film_show")
-     * @Method("GET")
      * @Template()
      */
     public function showAction($id)
@@ -127,8 +117,6 @@ class FilmController extends Controller
     /**
      * Displays a form to edit an existing Film entity.
      *
-     * @Route("/{id}/edit", name="film_edit")
-     * @Method("GET")
      * @Template()
      */
     public function editAction($id)
@@ -172,8 +160,6 @@ class FilmController extends Controller
     /**
      * Edits an existing Film entity.
      *
-     * @Route("/{id}", name="film_update")
-     * @Method("PUT")
      * @Template("AcmeFilmsBundle:Film:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -204,9 +190,6 @@ class FilmController extends Controller
     }
     /**
      * Deletes a Film entity.
-     *
-     * @Route("/{id}", name="film_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

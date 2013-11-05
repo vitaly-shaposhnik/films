@@ -12,8 +12,6 @@ use Acme\FilmsBundle\Form\ActorType;
 
 /**
  * Actor controller.
- *
- * @Route("/actor")
  */
 class ActorController extends Controller
 {
@@ -21,8 +19,6 @@ class ActorController extends Controller
     /**
      * Lists all Actor entities.
      *
-     * @Route("/", name="actor")
-     * @Method("GET")
      * @Template()
      */
     public function indexAction()
@@ -38,8 +34,6 @@ class ActorController extends Controller
     /**
      * Creates a new Actor entity.
      *
-     * @Route("/", name="actor_create")
-     * @Method("POST")
      * @Template("AcmeFilmsBundle:Actor:new.html.twig")
      */
     public function createAction(Request $request)
@@ -84,8 +78,6 @@ class ActorController extends Controller
     /**
      * Displays a form to create a new Actor entity.
      *
-     * @Route("/new", name="actor_new")
-     * @Method("GET")
      * @Template()
      */
     public function newAction()
@@ -102,8 +94,6 @@ class ActorController extends Controller
     /**
      * Finds and displays a Actor entity.
      *
-     * @Route("/{id}", name="actor_show")
-     * @Method("GET")
      * @Template()
      */
     public function showAction($id)
@@ -127,8 +117,6 @@ class ActorController extends Controller
     /**
      * Displays a form to edit an existing Actor entity.
      *
-     * @Route("/{id}/edit", name="actor_edit")
-     * @Method("GET")
      * @Template()
      */
     public function editAction($id)
@@ -172,8 +160,6 @@ class ActorController extends Controller
     /**
      * Edits an existing Actor entity.
      *
-     * @Route("/{id}", name="actor_update")
-     * @Method("PUT")
      * @Template("AcmeFilmsBundle:Actor:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -204,9 +190,6 @@ class ActorController extends Controller
     }
     /**
      * Deletes a Actor entity.
-     *
-     * @Route("/{id}", name="actor_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
