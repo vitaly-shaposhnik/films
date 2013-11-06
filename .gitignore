@@ -7,6 +7,8 @@
 !app/logs/.gitkeep
 /build/
 /vendor/
-/bin/
+#/bin/
+/bin/doctrine
+/bin/doctrine.php
 /composer.phar
 /.idea
