@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Categories</th>
                 <th>Genres</th>
                 <th>Actors</th>
             </tr>
@@ -16,6 +17,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('film_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td>{{ entity.categories|join(',') }}</td>
                 <td>{{ entity.genres|join(',') }}</td>
                 <td>{{ entity.actors|join(',') }}</td>
             </tr>
