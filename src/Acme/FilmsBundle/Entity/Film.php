@@ -30,19 +30,19 @@ class Film
 
     /**
      * @ORM\ManyToMany(targetEntity="Actor", inversedBy="films")
-     * @ORM\JoinTable(name="Film_Actor")
+     * @ORM\JoinTable(name="film_actor")
      **/
     private $actors;
 
     /**
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="films")
-     * @ORM\JoinTable(name="Film_Category")
+     * @ORM\JoinTable(name="film_category")
      **/
     private $categories;
 
     /**
      * @ORM\ManyToMany(targetEntity="Genre", inversedBy="films")
-     * @ORM\JoinTable(name="Film_Genre")
+     * @ORM\JoinTable(name="film_genre")
      **/
     private $genres;
 
