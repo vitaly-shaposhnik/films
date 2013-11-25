@@ -37,16 +37,32 @@ class FilmType extends AbstractType
                 'multiple'  => true,
                 'expanded'  => true,
             ))
-            ->add('actors', 'collection', array(
-                'type'          => new ActorType(),
-//                'options'       => array(
-//                    'required'  => false,
-//                    'attr'      => array('class' => 'email-box')
+//            ->add('actors', 'collection', array(
+//                'type'          => new ActorType(),
+////                'options'       => array(
+////                    'required'  => false,
+////                    'attr'      => array('class' => 'email-box')
+////                ),
+//                'allow_add'     => true,
+//                'allow_delete'  => true,
+//                'prototype'     => true,
+//            ))
+//            ->add('actors', 'genemu_jqueryautocompleter_actors')
+            // Text suggestions
+//            ->add('actors', 'genemu_jqueryautocomplete_text', array(
+//                'suggestions' => array(
+//                    'Ozil',
+//                    'Van Persie'
 //                ),
-                'allow_add'     => true,
-                'allow_delete'  => true,
-                'prototype'     => true,
-            ))
+//            ))
+            // Suggestions with doctrine orm
+//            ->add('actors', 'genemu_jqueryautocomplete_entity', array(
+//                'class' => 'Acme\FilmsBundle\Entity\Actor',
+//                'property' => 'name',
+//            ))
+            ->add('actors', 'genemu_jqueryautocomplete_text', array(
+                'route_name' => 'ajax'
+            ));
         ;
     }
     
