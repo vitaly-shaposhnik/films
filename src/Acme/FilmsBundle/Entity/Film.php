@@ -29,7 +29,7 @@ class Film
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Actor", inversedBy="films")
+     * @ORM\ManyToMany(targetEntity="Actor", cascade={"persist"}, inversedBy="films")
      * @ORM\JoinTable(name="film_actor")
      **/
     private $actors;

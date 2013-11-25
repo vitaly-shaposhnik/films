@@ -3,14 +3,125 @@
 {% block body -%}
     <h1>Film edit</h1>
 
-    {{ form(edit_form) }}
+    {{ form_start(edit_form) }}
+        <div>
+            {{ form_label(edit_form.name) }}
+            {{ form_errors(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+        </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('film') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <div>
+            {{ form_label(edit_form.genres) }}
+            {{ form_errors(edit_form.genres) }}
+            {{ form_widget(edit_form.genres) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.categories) }}
+            {{ form_errors(edit_form.categories) }}
+            {{ form_widget(edit_form.categories) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.actors) }}
+
+            <ul id="fields-list" data-prototype="{{ form_widget(edit_form.actors.vars.prototype) | e }}">
+                {% for actorField in edit_form.actors %}
+                    <li>
+                        {{ form_errors(actorField) }}
+                        {{ form_widget(actorField) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            {{ form_widget(edit_form.submit) }}
+        </div>
+
+    {{ form_end(edit_form) }}
+
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('film') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+
+
+    <script type="text/javascript">
+        var $collectionHolder;
+
+        var $addLink = $('<a href="#" class="add_link">Add</a>');
+        var $newLinkLi = $('<li></li>').append($addLink);
+
+        jQuery(document).ready(function() {
+            // Get the ul that holds the collection
+            $collectionHolder = $('#fields-list');
+
+            // add a delete link to all of the existing form li elements
+            $collectionHolder.find('li').each(function() {
+                addFormDeleteLink($(this));
+            });
+
+            // add the "add" anchor and li to the ul
+            $collectionHolder.append($newLinkLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+            $addLink.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new form (see next code block)
+                addForm($collectionHolder, $newLinkLi);
+            });
+        });
+
+
+        function addForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add" link li
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+
+            // add a delete link to the new form
+            addFormDeleteLink($newFormLi);
+        }
+
+
+        function addFormDeleteLink($formLi) {
+            var $removeFormA = $('<a href="#">delete</a>');
+            $formLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the form
+                $formLi.remove();
+            });
+        }
+    </script>
+
+    {#<script src="{{ asset('src/acmefilmsbundle/js/add_remove_items.js') }}" type="text/javascript"></script>#}
+
+
 {% endblock %}

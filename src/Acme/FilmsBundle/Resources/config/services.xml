@@ -16,5 +16,11 @@
             <argument>%parameter_name%</argument>
         </service>
     </services>
-    -->
+
+    <services>
+        <service id="acme_films.form.type.date_country"
+                 class="Acme\FilmsBundle\Form\DateCountryType">
+            <tag name="form.type" alias="date_country" />
+        </service>
+    </services>-->
 </container>
