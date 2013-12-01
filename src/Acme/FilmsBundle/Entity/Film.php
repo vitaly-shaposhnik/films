@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Film
  *
- * @ORM\Table()
+ * @ORM\Table("film")
  * @ORM\Entity(repositoryClass="Acme\FilmsBundle\Entity\FilmRepository")
  */
 class Film
@@ -191,4 +191,5 @@ class Film
     {
         return $this->name;
     }
+
 }
