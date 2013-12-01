@@ -47,6 +47,7 @@ class FilmType extends AbstractType
                 'allow_delete'  => true,
                 'prototype'     => true,
             ))
+            ->add('file')
         ;
     }
     
