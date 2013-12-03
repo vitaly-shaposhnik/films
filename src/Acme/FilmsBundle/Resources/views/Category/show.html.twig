@@ -19,12 +19,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('category') }}">
-            Back to the list
+            <button class="btn btn-primary">Back to the list</button>
         </a>
     </li>
     <li>
         <a href="{{ path('category_edit', { 'id': entity.id }) }}">
-            Edit
+            <button class="btn btn-primary">Edit</button>
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

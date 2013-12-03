@@ -180,6 +180,7 @@ class FilmController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->upload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('film_edit', array('id' => $id)));
