@@ -6,6 +6,14 @@
     <table class="record_properties">
         <tbody>
             <tr>
+                <th></th>
+                <td>
+                    {% if entity.path %}
+                        <img src="/uploads/images/film-preview/{{ entity.path }}" />
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
                 <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>
@@ -19,12 +27,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('film') }}">
-            Back to the list
+            <button class="btn btn-primary">Back to the list</button>
         </a>
     </li>
     <li>
         <a href="{{ path('film_edit', { 'id': entity.id }) }}">
-            Edit
+            <button class="btn btn-primary">Edit</button>
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

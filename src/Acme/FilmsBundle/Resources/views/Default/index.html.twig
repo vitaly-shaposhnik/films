@@ -7,6 +7,7 @@
     <table class="records_list">
         <thead>
             <tr>
+                <th></th>
                 <th>Name</th>
                 <th>Categories</th>
                 <th>Genres</th>
@@ -16,6 +17,11 @@
         <tbody>
         {% for entity in entities %}
             <tr>
+                <td>
+                    {% if entity.path %}
+                        <a href="{{ path('film_show', { 'id': entity.id }) }}"><img src="/uploads/images/film-preview/{{ entity.path }}" /></a>
+                    {% endif %}
+                </td>
                 <td><a href="{{ path('film_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
                 <td>{{ entity.categories|join(',') }}</td>
                 <td>{{ entity.genres|join(',') }}</td>

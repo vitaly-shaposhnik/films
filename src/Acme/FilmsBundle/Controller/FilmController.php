@@ -44,6 +44,9 @@ class FilmController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $entity->upload();
+
             $em->persist($entity);
             $em->flush();
 
@@ -177,6 +180,7 @@ class FilmController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->upload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('film_edit', array('id' => $id)));

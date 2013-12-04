@@ -17,6 +17,11 @@
                 <td><a href="{{ path('film_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>
+                    {% if entity.path %}
+                        <img src="/uploads/images/film-preview/{{ entity.path }}" />
+                    {% endif %}
+                </td>
+                <td>
                 <ul>
                     <li>
                         <a href="{{ path('film_show', { 'id': entity.id }) }}">show</a>
@@ -34,8 +39,9 @@
         <ul>
         <li>
             <a href="{{ path('film_new') }}">
-                Create a new entry
+                <button class="btn btn-primary">Create a new entry</button>
             </a>
+
         </li>
     </ul>
     {% endblock %}
