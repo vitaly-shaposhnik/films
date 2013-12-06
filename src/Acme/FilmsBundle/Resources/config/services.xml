@@ -26,7 +26,6 @@
 
 
     <services>
-        <!--<service id="acme.film.film_repository"-->
         <service id="acme_films.film_repository"
                  class="Acme\FilmsBundle\Entity\FilmRepository"
                  factory-service="doctrine.orm.entity_manager"
