@@ -212,7 +212,19 @@ class Film
             : $this->getUploadRootDir().'/'.$this->path;
     }
 
-    public function getWebPath()
+    /**
+     * @param string $path
+     * @return string
+     */
+    public function setPath($path)
+    {
+        return $path;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPath()
     {
         return null === $this->path
             ? null
