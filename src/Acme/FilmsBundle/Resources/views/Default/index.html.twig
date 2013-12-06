@@ -19,7 +19,7 @@
             <tr>
                 <td>
                     {% if entity.path %}
-                        <a href="{{ path('film_show', { 'id': entity.id }) }}"><img src="/uploads/images/film-preview/{{ entity.path }}" /></a>
+                        <a href="{{ path('film_show', { 'id': entity.id }) }}"><img src="{{ entity.path }}" /></a>
                     {% endif %}
                 </td>
                 <td><a href="{{ path('film_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
