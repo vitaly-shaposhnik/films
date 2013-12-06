@@ -4,22 +4,22 @@ namespace Acme\FilmsBundle\Service;
 
 use Doctrine\ORM\EntityRepository;
 
-class FilmsService
+class FilmService
 {
-    protected $filmsRepository;
+    protected $filmRepository;
     protected $logger;
 
-    public function __construct($filmsRepository/*,
+    public function __construct($filmRepository/*,
                                 LoggerInterface $logger*/)
     {
-        $this->filmsRepository = $filmsRepository;
+        $this->filmRepository = $filmRepository;
 //        $this->logger = $logger;
     }
 
     public function query()
     {
-//        $results = $this->filmsRepository->fetchLatest();
-//        $this->logger->info(sprintf('Someone fetched %d films',
+//        $results = $this->filmRepository->fetchLatest();
+//        $this->logger->info(sprintf('Someone fetched %d film',
 //            count($results)));
 //
 //        return $results;

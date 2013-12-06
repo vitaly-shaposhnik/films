@@ -25,24 +25,18 @@
     </services>-->
 
 
-    <parameters>
-        <parameter key="acme.films_bundle.entity.film_repository">
-            Acme\FilmsBundle\Entity\FilmRepository</parameter>
-        <parameter key="acme.films_bundle.service.film_service">
-            Acme\FilmsBundle\Service\FilmService</parameter>
-    </parameters>
-
     <services>
-        <service id="acme.films.repository"
-                 class="%acme.films_bundle.entity.film_repository%"
+        <!--<service id="acme.film.film_repository"-->
+        <service id="acme_films.film_repository"
+                 class="Acme\FilmsBundle\Entity\FilmRepository"
                  factory-service="doctrine.orm.entity_manager"
                  factory-method="getRepository">
             <argument>ExampleFooBundle:Foo</argument>
         </service>
 
-        <service id="acme.films.service"
-                 class="%acme.films_bundle.service.film_service%">
-            <argument type="service" id="acme.films.repository" />
+        <service id="acme_films.film_service"
+                 class="Acme\FilmsBundle\Service\FilmService">
+            <argument type="service" id="acme_films.film_repository" />
             <!--<argument type="service" id="logger" />-->
         </service>
     </services>
