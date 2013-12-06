@@ -35,6 +35,6 @@ class CategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'acme_filmsbundle_category';
+        return 'category';
     }
 }

@@ -65,7 +65,7 @@ class GenreController extends Controller
     */
     private function createCreateForm(Genre $entity)
     {
-        $form = $this->createForm(new GenreType(), $entity, array(
+        $form = $this->createForm('genre', $entity, array(
             'action' => $this->generateUrl('genre_create'),
             'method' => 'POST',
         ));
@@ -148,7 +148,7 @@ class GenreController extends Controller
     */
     private function createEditForm(Genre $entity)
     {
-        $form = $this->createForm(new GenreType(), $entity, array(
+        $form = $this->createForm('genre', $entity, array(
             'action' => $this->generateUrl('genre_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

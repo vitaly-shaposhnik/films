@@ -65,7 +65,7 @@ class ActorController extends Controller
     */
     private function createCreateForm(Actor $entity)
     {
-        $form = $this->createForm(new ActorType(), $entity, array(
+        $form = $this->createForm('actor', $entity, array(
             'action' => $this->generateUrl('actor_create'),
             'method' => 'POST',
         ));
@@ -148,7 +148,7 @@ class ActorController extends Controller
     */
     private function createEditForm(Actor $entity)
     {
-        $form = $this->createForm(new ActorType(), $entity, array(
+        $form = $this->createForm('actor', $entity, array(
             'action' => $this->generateUrl('actor_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

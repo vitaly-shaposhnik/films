@@ -35,6 +35,6 @@ class GenreType extends AbstractType
      */
     public function getName()
     {
-        return 'acme_filmsbundle_genre';
+        return 'genre';
     }
 }

@@ -68,7 +68,7 @@ class FilmController extends Controller
     */
     private function createCreateForm(Film $entity)
     {
-        $form = $this->createForm(new FilmType(), $entity, array(
+        $form = $this->createForm('film', $entity, array(
             'action' => $this->generateUrl('film_create'),
             'method' => 'POST',
         ));
@@ -151,7 +151,7 @@ class FilmController extends Controller
     */
     private function createEditForm(Film $entity)
     {
-        $form = $this->createForm(new FilmType(), $entity, array(
+        $form = $this->createForm('film', $entity, array(
             'action' => $this->generateUrl('film_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

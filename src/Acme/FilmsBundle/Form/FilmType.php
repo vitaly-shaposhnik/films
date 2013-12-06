@@ -38,7 +38,7 @@ class FilmType extends AbstractType
                 'expanded'  => true,
             ))
             ->add('actors', 'collection', array(
-                'type'          => new ActorType(),
+                'type'          => 'actor',
 //                'options'       => array(
 //                    'required'  => false,
 //                    'attr'      => array('class' => 'email-box')
@@ -66,6 +66,6 @@ class FilmType extends AbstractType
      */
     public function getName()
     {
-        return 'acme_filmsbundle_film';
+        return 'film';
     }
 }

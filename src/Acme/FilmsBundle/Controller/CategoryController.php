@@ -65,7 +65,7 @@ class CategoryController extends Controller
     */
     private function createCreateForm(Category $entity)
     {
-        $form = $this->createForm(new CategoryType(), $entity, array(
+        $form = $this->createForm('category', $entity, array(
             'action' => $this->generateUrl('category_create'),
             'method' => 'POST',
         ));
@@ -148,7 +148,7 @@ class CategoryController extends Controller
     */
     private function createEditForm(Category $entity)
     {
-        $form = $this->createForm(new CategoryType(), $entity, array(
+        $form = $this->createForm('category', $entity, array(
             'action' => $this->generateUrl('category_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
