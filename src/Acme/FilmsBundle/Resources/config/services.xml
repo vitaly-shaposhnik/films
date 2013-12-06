@@ -55,5 +55,9 @@
                  class="Acme\FilmsBundle\Form\GenreType">
             <tag name="form.type" alias="genre" />
         </service>
+        <service id="acme_films.form.actor_film_type"
+                 class="Acme\FilmsBundle\Form\ActorFilmType">
+            <tag name="form.type" alias="actor_film" />
+        </service>
     </services>
 </container>
