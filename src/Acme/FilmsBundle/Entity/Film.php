@@ -28,6 +28,13 @@ class Film
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(
+     *      min = "1",
+     *      max = "15",
+     *      minMessage = "Минимум {{ limit }} символов,
+     *      maxMessage = "Нельзя ввести название длиннее {{ limit }} символов",
+     *      groups={"film_form"}
+     * )
      */
     private $name;
 

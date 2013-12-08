@@ -57,7 +57,8 @@ class FilmType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Acme\FilmsBundle\Entity\Film'
+            'data_class' => 'Acme\FilmsBundle\Entity\Film',
+            'validation_groups' => array('film_form'),
         ));
     }
 
