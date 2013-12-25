@@ -56,7 +56,7 @@ class FilmController extends Controller
 
             $em->flush();
 
-            return $this->redirect($this->generateUrl('film_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('film_show', array('slug' => $entity->getSlug())));
         }
 
         return array(
@@ -105,17 +105,17 @@ class FilmController extends Controller
      *
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeFilmsBundle:Film')->find($id);
+        $entity = $em->getRepository('AcmeFilmsBundle:Film')->findOneBy(['slug' => $slug]);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Film entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($slug);
 
         return array(
             'entity'      => $entity,
@@ -128,18 +128,18 @@ class FilmController extends Controller
      *
      * @Template()
      */
-    public function editAction($id)
+    public function editAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeFilmsBundle:Film')->find($id);
+        $entity = $em->getRepository('AcmeFilmsBundle:Film')->findOneBy(['slug' => $slug]);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Film entity.');
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($slug);
 
         return array(
             'entity'      => $entity,
@@ -158,7 +158,7 @@ class FilmController extends Controller
     private function createEditForm(Film $entity)
     {
         $form = $this->createForm('film', $entity, array(
-            'action' => $this->generateUrl('film_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('film_update', array('slug' => $entity->getSlug())),
             'method' => 'PUT',
         ));
 
@@ -171,17 +171,17 @@ class FilmController extends Controller
      *
      * @Template("AcmeFilmsBundle:Film:edit.html.twig")
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request, $slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeFilmsBundle:Film')->find($id);
+        $entity = $em->getRepository('AcmeFilmsBundle:Film')->findOneBy(['slug' => $slug]);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Film entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($slug);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -189,7 +189,7 @@ class FilmController extends Controller
             $entity->upload();
             $em->flush();
 
-            return $this->redirect($this->generateUrl('film_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('film_edit', array('slug' => $slug)));
         }
 
         return array(
@@ -201,14 +201,14 @@ class FilmController extends Controller
     /**
      * Deletes a Film entity.
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(Request $request, $slug)
     {
-        $form = $this->createDeleteForm($id);
+        $form = $this->createDeleteForm($slug);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AcmeFilmsBundle:Film')->find($id);
+            $entity = $em->getRepository('AcmeFilmsBundle:Film')->findOneBy(['slug' => $slug]);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Film entity.');
@@ -222,16 +222,16 @@ class FilmController extends Controller
     }
 
     /**
-     * Creates a form to delete a Film entity by id.
+     * Creates a form to delete a Film entity by slug.
      *
-     * @param mixed $id The entity id
+     * @param mixed $slug The entity slug
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    private function createDeleteForm($slug)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('film_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('film_delete', array('slug' => $slug)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
