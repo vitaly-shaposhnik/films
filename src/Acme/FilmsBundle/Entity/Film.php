@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bundle\FrameworkBundle\Controller;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Film
@@ -64,6 +65,22 @@ class Film
      * @Assert\File(maxSize="6000000")
      */
     private $file;
+
+    /**
+     * @var datetime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
 
     /**
      * Get id
@@ -294,5 +311,21 @@ class Film
 
         // clean up the file property as you won't need it anymore
         $this->file = null;
+    }
+
+    /**
+     * @return \Acme\FilmsBundle\Entity\datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @return \Acme\FilmsBundle\Entity\date
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
