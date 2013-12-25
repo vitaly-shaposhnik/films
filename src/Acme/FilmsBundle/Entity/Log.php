@@ -24,9 +24,9 @@ class Log
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="message", type="text")
      */
-    private $description;
+    private $message;
 
 
     /**
@@ -40,25 +40,25 @@ class Log
     }
 
     /**
-     * Set description
+     * Set message
      *
-     * @param string $description
+     * @param string $message
      * @return Log
      */
-    public function setDescription($description)
+    public function setMessage($message)
     {
-        $this->description = $description;
+        $this->message = $message;
     
         return $this;
     }
 
     /**
-     * Get description
+     * Get message
      *
      * @return string 
      */
-    public function getDescription()
+    public function getMessage()
     {
-        return $this->description;
+        return $this->message;
     }
 }

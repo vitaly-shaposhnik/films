@@ -9,6 +9,7 @@ use Acme\FilmsBundle\Entity\Film;
 use Acme\FilmsBundle\Entity\Category;
 use Acme\FilmsBundle\Entity\Actor;
 use Acme\FilmsBundle\Entity\Genre;
+use Acme\FilmsBundle\Entity\Log;
 
 
 class LoadFilmData implements FixtureInterface
@@ -76,6 +77,11 @@ class LoadFilmData implements FixtureInterface
         $film->addGenre($genre);
         $film->addGenre($genre2);
         $manager->persist($film);
+
+
+        $log = new Log();
+        $log->setMessage('Test');
+        $manager->persist($log);
 
         $manager->flush();
     }
