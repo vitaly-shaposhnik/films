@@ -35,6 +35,6 @@ class ActorType extends AbstractType
      */
     public function getName()
     {
-        return 'acme_filmsbundle_actor';
+        return 'actor';
     }
 }

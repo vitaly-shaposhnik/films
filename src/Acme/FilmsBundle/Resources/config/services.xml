@@ -23,4 +23,45 @@
             <tag name="form.type" alias="date_country" />
         </service>
     </services>-->
+
+
+    <services>
+        <service id="acme_films.film_repository"
+                 class="Acme\FilmsBundle\Entity\FilmRepository"
+                 factory-service="doctrine.orm.entity_manager"
+                 factory-method="getRepository">
+            <!--<argument>ExampleFooBundle:Foo</argument>-->
+        </service>
+
+        <service id="acme_films.film_service"
+                 class="Acme\FilmsBundle\Service\FilmService">
+            <argument type="service" id="acme_films.film_repository" />
+            <!--<argument type="service" id="logger" />-->
+        </service>
+
+        <service id="acme_films.form.actor_type"
+                 class="Acme\FilmsBundle\Form\ActorType">
+            <tag name="form.type" alias="actor" />
+        </service>
+        <service id="acme_films.form.category_type"
+                 class="Acme\FilmsBundle\Form\CategoryType">
+            <tag name="form.type" alias="category" />
+        </service>
+        <service id="acme_films.form.film_type"
+                 class="Acme\FilmsBundle\Form\FilmType">
+            <tag name="form.type" alias="film" />
+        </service>
+        <service id="acme_films.form.genre_type"
+                 class="Acme\FilmsBundle\Form\GenreType">
+            <tag name="form.type" alias="genre" />
+        </service>
+        <service id="acme_films.form.actor_film_type"
+                 class="Acme\FilmsBundle\Form\ActorFilmType">
+            <tag name="form.type" alias="actor_film" />
+        </service>
+
+        <service id="acme_films.logger" class="Acme\FilmsBundle\Service\Logger">
+            <tag name="kernel.event_listener" event="element.create" method="log" />
+        </service>
+    </services>
 </container>

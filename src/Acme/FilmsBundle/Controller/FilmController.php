@@ -9,6 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Acme\FilmsBundle\Entity\Film;
 use Acme\FilmsBundle\Form\FilmType;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Acme\FilmsBundle\Event\LogEvent;
+
 
 /**
  * Film controller.
@@ -44,10 +47,13 @@ class FilmController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
             $entity->upload();
-
             $em->persist($entity);
+
+            $dispatcher = new EventDispatcher();
+            $event = new LogEvent($em, $entity, 'film was created');
+            $dispatcher->dispatch('element.create', $event);
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('film_show', array('id' => $entity->getId())));
@@ -68,7 +74,7 @@ class FilmController extends Controller
     */
     private function createCreateForm(Film $entity)
     {
-        $form = $this->createForm(new FilmType(), $entity, array(
+        $form = $this->createForm('film', $entity, array(
             'action' => $this->generateUrl('film_create'),
             'method' => 'POST',
         ));
@@ -151,7 +157,7 @@ class FilmController extends Controller
     */
     private function createEditForm(Film $entity)
     {
-        $form = $this->createForm(new FilmType(), $entity, array(
+        $form = $this->createForm('film', $entity, array(
             'action' => $this->generateUrl('film_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

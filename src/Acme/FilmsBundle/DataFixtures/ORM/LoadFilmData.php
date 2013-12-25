@@ -9,6 +9,7 @@ use Acme\FilmsBundle\Entity\Film;
 use Acme\FilmsBundle\Entity\Category;
 use Acme\FilmsBundle\Entity\Actor;
 use Acme\FilmsBundle\Entity\Genre;
+use Acme\FilmsBundle\Entity\Log;
 
 
 class LoadFilmData implements FixtureInterface
@@ -36,6 +37,7 @@ class LoadFilmData implements FixtureInterface
         $manager->persist($genre);
 
         $film = new Film();
+        $film->path = 'http://s10.dotua.org/fsua_items/cover/00/18/55/2/00185595.jpg';
         $film->setName('Большой куш');
         $film->addCategorie($category);
         $film->addActor($actor1);
@@ -66,6 +68,7 @@ class LoadFilmData implements FixtureInterface
         $manager->persist($genre2);
 
         $film = new Film();
+        $film->path = 'http://s12.dotua.org/fsua_items/cover/00/09/96/2/00099639.jpg';
         $film->setName('Карты, деньги, два ствола');
         $film->addCategorie($category);
         $film->addActor($actor1);
@@ -74,6 +77,11 @@ class LoadFilmData implements FixtureInterface
         $film->addGenre($genre);
         $film->addGenre($genre2);
         $manager->persist($film);
+
+
+        $log = new Log();
+        $log->setMessage('Test');
+        $manager->persist($log);
 
         $manager->flush();
     }

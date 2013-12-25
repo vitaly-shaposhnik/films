@@ -22,7 +22,8 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
 		"twitter/bootstrap-bundle": "dev-master",
-		"twbs/bootstrap": "2.3.*"
+		"twbs/bootstrap": "2.3.*",
+		"symfony/event-dispatcher": "2.5.*"
     },
     "scripts": {
         "post-install-cmd": [

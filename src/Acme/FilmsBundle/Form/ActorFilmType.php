@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CategoryType extends AbstractType
+class ActorFilmType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,7 +16,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name')
-//            ->add('films')
+            ->add('films')
         ;
     }
     
@@ -26,7 +26,7 @@ class CategoryType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Acme\FilmsBundle\Entity\Category'
+            'data_class' => 'Acme\FilmsBundle\Entity\Actor'
         ));
     }
 
@@ -35,6 +35,6 @@ class CategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'category';
+        return 'actor_film';
     }
 }

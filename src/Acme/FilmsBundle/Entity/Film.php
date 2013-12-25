@@ -5,6 +5,7 @@ namespace Acme\FilmsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bundle\FrameworkBundle\Controller;
 
 /**
  * Film
@@ -27,6 +28,13 @@ class Film
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(
+     *      min = "1",
+     *      max = "150",
+     *      minMessage = "Минимум {{ limit }} символов",
+     *      maxMessage = "Нельзя ввести название длиннее {{ limit }} символов",
+     *      groups={"film_form"}
+     * )
      */
     private $name;
 
@@ -211,7 +219,19 @@ class Film
             : $this->getUploadRootDir().'/'.$this->path;
     }
 
-    public function getWebPath()
+    /**
+     * @param string $path
+     * @return string
+     */
+    public function setPath($path)
+    {
+        return $path;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPath()
     {
         return null === $this->path
             ? null
@@ -270,7 +290,7 @@ class Film
         );
 
         // set the path property to the filename where you've saved the file
-        $this->path = $this->getFile()->getClientOriginalName();
+        $this->path =  $this->getUploadRootDir() . '/' . $this->getFile()->getClientOriginalName();
 
         // clean up the file property as you won't need it anymore
         $this->file = null;

@@ -3,7 +3,45 @@
 {% block body -%}
     <h1>Film creation</h1>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+
+        <div>
+            {{ form_label(form.genres) }}
+            {{ form_errors(form.genres) }}
+            {{ form_widget(form.genres) }}
+        </div>
+
+        <div>
+            {{ form_label(form.categories) }}
+            {{ form_errors(form.categories) }}
+            {{ form_widget(form.categories) }}
+        </div>
+
+        <div>
+            {{ form_label(form.actors) }}
+
+            <ul id="fields-list" data-prototype="{{ form_widget(form.actors.vars.prototype) | e }}">
+                {% for actorField in form.actors %}
+                    <li>
+                        {{ form_errors(actorField) }}
+                        {{ form_widget(actorField) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            {{ form_widget(form.submit) }}
+        </div>
+
+    {{ form_end(form) }}
+
+    <script src="{{ asset('bundles/acmefilms/js/add_remove_items.js') }}" type="text/javascript"></script>
 
     <ul class="record_actions">
         <li>
