@@ -23,7 +23,9 @@
         "incenteev/composer-parameter-handler": "~2.0",
 		"twitter/bootstrap-bundle": "dev-master",
 		"twbs/bootstrap": "2.3.*",
-		"symfony/event-dispatcher": "2.5.*"
+		"symfony/event-dispatcher": "2.3.*",
+		"gedmo/doctrine-extensions": "dev-master",
+		"stof/doctrine-extensions-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
