@@ -7,7 +7,7 @@ film:
     defaults: { _controller: AcmeFilmsBundle:Film:index }
     methods:  [GET]
 film_edit:
-    pattern:  /film/{id}/edit
+    pattern:  /film/{slug}/edit
     defaults: { _controller: AcmeFilmsBundle:Film:edit }
     methods:  [GET]
 film_new:
@@ -19,15 +19,15 @@ film_create:
     defaults: { _controller: AcmeFilmsBundle:Film:create }
     methods:  [POST]
 film_show:
-    pattern:  /film/{id}
+    pattern:  /film/{slug}
     defaults: { _controller: AcmeFilmsBundle:Film:show }
     methods:  [GET]
 film_delete:
-    pattern:  /film/{id}
+    pattern:  /film/{slug}
     defaults: { _controller: AcmeFilmsBundle:Film:delete }
     methods:  [DELETE]
 film_update:
-    pattern:  /film/{id}
+    pattern:  /film/{slug}
     defaults: { _controller: AcmeFilmsBundle:Film:update }
     methods:  [PUT]
 
