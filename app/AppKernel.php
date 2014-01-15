@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Acme\FilmsBundle\AcmeFilmsBundle(),
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

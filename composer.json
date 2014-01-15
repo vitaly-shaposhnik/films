@@ -25,7 +25,8 @@
 		"twbs/bootstrap": "2.3.*",
 		"symfony/event-dispatcher": "2.3.*",
 		"gedmo/doctrine-extensions": "dev-master",
-		"stof/doctrine-extensions-bundle": "dev-master"
+		"stof/doctrine-extensions-bundle": "dev-master",
+		"friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "scripts": {
         "post-install-cmd": [
