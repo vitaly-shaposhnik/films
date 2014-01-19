@@ -30,11 +30,13 @@
             <button class="btn btn-primary">Back to the list</button>
         </a>
     </li>
-    <li>
-        <a href="{{ path('film_edit', { 'slug': entity.slug }) }}">
-            <button class="btn btn-primary">Edit</button>
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <li>
+            <a href="{{ path('film_edit', { 'slug': entity.slug }) }}">
+                <button class="btn btn-primary">Edit</button>
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    {% endif %}
 </ul>
 {% endblock %}

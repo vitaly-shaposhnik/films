@@ -19,6 +19,17 @@
             <a href="{{ path('category') }}">Категории</a> |
             <a href="{{ path('actor') }}">Актеры</a> |
             <a href="{{ path('genre') }}">Жанры</a>
+
+            <div class="login-form">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'Вы вошли как %username%'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'Выйти'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'Вход'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+            </div>
         </nav>
 
         {% block body -%}{% endblock %}

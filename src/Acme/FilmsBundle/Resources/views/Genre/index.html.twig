@@ -21,9 +21,11 @@
                     <li>
                         <a href="{{ path('genre_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li>
-                        <a href="{{ path('genre_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            <a href="{{ path('genre_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 </td>
             </tr>
@@ -31,11 +33,13 @@
         </tbody>
     </table>
 
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <ul>
-        <li>
-            <a href="{{ path('genre_new') }}">
-                <button class="btn btn-primary">Create a new entry</button>
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+            <li>
+                <a href="{{ path('genre_new') }}">
+                    <button class="btn btn-primary">Create a new entry</button>
+                </a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
