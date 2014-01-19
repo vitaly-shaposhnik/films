@@ -16,17 +16,19 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('genre') }}">
-            <button class="btn btn-primary">Back to the list</button>
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('genre_edit', { 'id': entity.id }) }}">
-            <button class="btn btn-primary">Edit</button>
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('genre') }}">
+                <button class="btn btn-primary">Back to the list</button>
+            </a>
+        </li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li>
+                <a href="{{ path('genre_edit', { 'id': entity.id }) }}">
+                    <button class="btn btn-primary">Edit</button>
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        {% endif %}
+    </ul>
 {% endblock %}

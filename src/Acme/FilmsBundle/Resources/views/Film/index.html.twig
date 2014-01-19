@@ -26,9 +26,11 @@
                     <li>
                         <a href="{{ path('film_show', { 'slug': entity.slug }) }}">show</a>
                     </li>
-                    <li>
-                        <a href="{{ path('film_edit', { 'slug': entity.slug }) }}">edit</a>
-                    </li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            <a href="{{ path('film_edit', { 'slug': entity.slug }) }}">edit</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 </td>
             </tr>
@@ -36,12 +38,14 @@
         </tbody>
     </table>
 
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <ul>
-        <li>
-            <a href="{{ path('film_new') }}">
-                <button class="btn btn-primary">Create a new entry</button>
-            </a>
+            <li>
+                <a href="{{ path('film_new') }}">
+                    <button class="btn btn-primary">Create a new entry</button>
+                </a>
 
-        </li>
-    </ul>
-    {% endblock %}
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
