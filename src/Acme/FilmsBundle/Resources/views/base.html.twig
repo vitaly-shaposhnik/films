@@ -13,26 +13,52 @@
     </head>
 
     <body>
-        <nav>
-            <a href="{{ path('acme_films_homepage') }}">Главная</a> |
-            <a href="{{ path('film') }}">Фильмы</a> |
-            <a href="{{ path('category') }}">Категории</a> |
-            <a href="{{ path('actor') }}">Актеры</a> |
-            <a href="{{ path('genre') }}">Жанры</a>
 
-            <div class="login-form">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    {{ 'Вы вошли как %username%'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                    <a href="{{ path('fos_user_security_logout') }}">
-                        {{ 'Выйти'|trans({}, 'FOSUserBundle') }}
-                    </a>
-                {% else %}
-                    <a href="{{ path('fos_user_security_login') }}">{{ 'Вход'|trans({}, 'FOSUserBundle') }}</a>
-                {% endif %}
-            </div>
-        </nav>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            {% set route = app.request.attributes.get('_route') %}
+                            <li class="{{ route == 'acme_films_homepage' ? 'active' }}"><a href="{{ path('acme_films_homepage') }}"><i class="icon-home icon-white"></i> Главная</a></li>
+                            <li class="divider-vertical"></li>
+                            <li class="{{ route == 'film' ? 'active' }}"><a href="{{ path('film') }}">Фильмы</a></li>
+                            <li class="divider-vertical"></li>
+                            <li class="{{ route == 'category' ? 'active' }}"><a href="{{ path('category') }}">Категории</a></li>
+                            <li class="divider-vertical"></li>
+                            <li class="{{ route == 'actor' ? 'active' }}"><a href="{{ path('actor') }}">Актеры</a></li>
+                            <li class="divider-vertical"></li>
+                            <li class="{{ route == 'genre' ? 'active' }}"><a href="{{ path('genre') }}">Жанры</a></li>
+                            <li class="divider-vertical"></li>
+                        </ul>
 
-        {% block body -%}{% endblock %}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="icon-user"></i> {{ app.user.username }}<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {#<li><a href="#"><i class="icon-wrench"></i> Settings</a></li>#}
+                                    {#<li class="divider"></li>#}
+                                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-share"></i> Выход</a></li>
+                                </ul>
+                            </div>
+
+                        {% else %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li id="nav-register-btn" class=""><a href="{{ path('fos_user_registration_register') }}">Регистрация</a></li>
+                                <li id="nav-login-btn" class=""><a href="{{ path('fos_user_security_login') }}"><i class="icon-login"></i>Вход</a></li>
+                            </ul>
+                        {% endif %}
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </div><!--/.navbar-inner -->
+        </div><!--/.navbar -->
+
+
+        <div id="content">
+            {% block body -%}{% endblock %}
+        </div>
     </body>
 
 </html>
