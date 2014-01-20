@@ -1,1 +1,8 @@
-.login-form {display:inline-block; margin-left: 20px;}
+.login-form {display:inline-block; float: right;}
+#content {width: 900px; margin: auto; padding: 5px 20px; background: #F3EDDF; box-shadow: 0 0 10px rgba(0,0,0,0.5);}
+
+body .navbar {margin-bottom:0px;}
+
+.navbar-right {
+    float: right!important;
+}
