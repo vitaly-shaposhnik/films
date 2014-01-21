@@ -1,8 +1,47 @@
-.login-form {display:inline-block; float: right;}
-#content {width: 900px; margin: auto; padding: 5px 20px; background: #F3EDDF; box-shadow: 0 0 10px rgba(0,0,0,0.5);}
 
-body .navbar {margin-bottom:0px;}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #E8E8E8 !important;
+}
+
+.login-form {display:inline-block; float: right;}
+
+#wrapper {
+    width: 940px;
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 auto;
+    background: #F3EDDF;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.content {
+    padding: 50px 20px;
+}
+
+body .navbar {
+    position: fixed;
+    width: 940px;
+    top: 0;
+}
 
 .navbar-right {
-    float: right!important;
+    float: right !important;
+}
+
+.footer {
+    width: 900px;
+    margin: -20px auto 0;
+    height: 20px;
+    position: relative;
+    display: block;
+    background: black;
+    color: white;
+    padding: 0 20px;
 }
