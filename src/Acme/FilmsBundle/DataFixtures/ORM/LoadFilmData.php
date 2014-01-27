@@ -37,7 +37,8 @@ class LoadFilmData implements FixtureInterface
         $manager->persist($genre);
 
         $film = new Film();
-        $film->path = 'http://s10.dotua.org/fsua_items/cover/00/18/55/2/00185595.jpg';
+//        $film->path = 'http://s10.dotua.org/fsua_items/cover/00/18/55/2/00185595.jpg';
+        $film->path = '/uploads/images/film-preview/two_smoking_barrels.jpg';
         $film->setName('Большой куш');
         $film->addCategorie($category);
         $film->addActor($actor1);
@@ -68,7 +69,8 @@ class LoadFilmData implements FixtureInterface
         $manager->persist($genre2);
 
         $film = new Film();
-        $film->path = 'http://s12.dotua.org/fsua_items/cover/00/09/96/2/00099639.jpg';
+//        $film->path = 'http://s12.dotua.org/fsua_items/cover/00/09/96/2/00099639.jpg';
+        $film->path = '/uploads/images/film-preview/two_smoking_barrels.jpg';
         $film->setName('Карты, деньги, два ствола');
         $film->addCategorie($category);
         $film->addActor($actor1);

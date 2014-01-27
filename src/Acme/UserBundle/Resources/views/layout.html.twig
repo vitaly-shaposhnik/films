@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-        "http://www.w3.org/TR/html4/strict.dtd">
+"http://www.w3.org/TR/html4/strict.dtd">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -40,8 +40,8 @@
                                     <ul class="dropdown-menu">
                                         {#<li><a href="#"><i class="icon-wrench"></i> Settings</a></li>#}
                                         {#<li class="divider"></li>#}
-                                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> Профиль</a></li>
-                                        <li><a href="{{ path('fos_user_profile_edit') }}"><i class="icon-wrench"></i> Редактировать</a></li>
+                                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="icon-share"></i> Профиль</a></li>
+                                        <li><a href="{{ path('fos_user_profile_edit') }}"><i class="icon-share"></i> Редактировать</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-share"></i> Выход</a></li>
                                     </ul>
                                 </div>
@@ -59,7 +59,18 @@
 
 
             <div class="content">
-                {% block body -%}{% endblock %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                <div>
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                </div>
             </div>
         </div>
 
@@ -67,5 +78,4 @@
             © 2014. Все права защищены.
         </footer>
     </body>
-
 </html>
