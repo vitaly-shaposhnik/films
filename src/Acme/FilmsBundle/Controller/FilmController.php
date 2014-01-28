@@ -11,6 +11,10 @@ use Acme\FilmsBundle\Entity\Film;
 use Acme\FilmsBundle\Form\FilmType;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Acme\FilmsBundle\Event\LogEvent;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
 
 /**
@@ -55,6 +59,21 @@ class FilmController extends Controller
             $dispatcher->dispatch('element.create', $event);
 
             $em->flush();
+
+
+            // creating the ACL
+            $aclProvider = $this->get('security.acl.provider');
+            $objectIdentity = ObjectIdentity::fromDomainObject($entity);
+            $acl = $aclProvider->createAcl($objectIdentity);
+
+            // retrieving the security identity of the currently logged-in user
+            $securityContext = $this->get('security.context');
+            $user = $securityContext->getToken()->getUser();
+            $securityIdentity = UserSecurityIdentity::fromAccount($user);
+
+            // grant owner access
+            $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OWNER);
+            $aclProvider->updateAcl($acl);
 
             return $this->redirect($this->generateUrl('film_show', array('slug' => $entity->getSlug())));
         }
@@ -136,6 +155,12 @@ class FilmController extends Controller
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Film entity.');
+        }
+
+        $securityContext = $this->get('security.context');
+        // check for edit access
+        if (false === $securityContext->isGranted('EDIT', $entity)) {
+            throw new AccessDeniedException();
         }
 
         $editForm = $this->createEditForm($entity);

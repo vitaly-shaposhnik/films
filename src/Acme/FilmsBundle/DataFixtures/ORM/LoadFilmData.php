@@ -38,7 +38,7 @@ class LoadFilmData implements FixtureInterface
 
         $film = new Film();
 //        $film->path = 'http://s10.dotua.org/fsua_items/cover/00/18/55/2/00185595.jpg';
-        $film->path = '/uploads/images/film-preview/two_smoking_barrels.jpg';
+        $film->path = '/uploads/images/film-preview/snatch.jpg';
         $film->setName('Большой куш');
         $film->addCategorie($category);
         $film->addActor($actor1);

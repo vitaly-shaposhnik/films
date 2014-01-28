@@ -70,5 +70,5 @@ security:
         - { path: /edit, role: ROLE_SUPER_ADMIN }
         - { path: /delete, role: ROLE_SUPER_ADMIN }
 
-#    acl:
-#            connection: default
+    acl:
+            connection: default
