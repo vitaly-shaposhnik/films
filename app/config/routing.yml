@@ -20,3 +20,27 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+#hwi_oauth_redirect:
+#    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+#    prefix:   /connect
+##facebook_login:
+##    pattern: /login/check-facebook
+#google_login:
+#    pattern: /login/check-google
+##custom_login:
+##    pattern: /login/check-custom
+##github_login:
+##    pattern: /login/check-github
+
+
+
+_security_check:
+    pattern:  /login_check
+_security_logout:
+    pattern:  /logout
+fos_facebook_channel:
+    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
+#_facebook_secured:
+#    pattern: /secured/
+#    defaults: { _controller: AcmeDemoBundle:Welcome:index }
