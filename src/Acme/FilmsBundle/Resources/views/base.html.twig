@@ -53,10 +53,10 @@
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
-                                {% if (app.request.locale == 'en') %}
-                                    <li><a href="{{ path(route, {_locale:'ru'}) }}"><i class="icon-flag"></i> {{ 'locale.ru'|trans({}, 'messages') }}</a></li>
+                                {% if app.request.locale == 'en' %}
+                                    <li><a href="{{ path('acme_films_homepage', {_locale:'ru'}) }}"><i class="icon-flag"></i> {{ 'locale.ru'|trans({}, 'messages') }}</a></li>
                                 {% else %}
-                                    <li><a href="{{ path(route, {_locale:'en'}) }}"><i class="icon-flag"></i> {{ 'locale.en'|trans({}, 'messages') }}</a></li>
+                                    <li><a href="{{ path('acme_films_homepage', {_locale:'en'}) }}"><i class="icon-flag"></i> {{ 'locale.en'|trans({}, 'messages') }}</a></li>
                                 {% endif %}
                             </ul>
 
