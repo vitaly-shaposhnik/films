@@ -4,22 +4,23 @@ acme_films:
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: /{_locale}
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+    prefix: /{_locale}/profile
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+    prefix: /{_locale}/register
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+    prefix: /{_locale}/resetting
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+    prefix: /{_locale}/profile
 
 #hwi_oauth_redirect:
 #    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
@@ -36,9 +37,9 @@ fos_user_change_password:
 
 
 _security_check:
-    pattern:  /login_check
+    pattern:  /{_locale}/login_check
 _security_logout:
-    pattern:  /logout
+    pattern:  /{_locale}/logout
 fos_facebook_channel:
     resource: "@FOSFacebookBundle/Resources/config/routing.xml"
 #_facebook_secured:

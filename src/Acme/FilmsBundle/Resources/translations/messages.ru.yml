@@ -1,0 +1,46 @@
+
+layout:
+    id: Ид
+    name: Название
+    image: Картинка
+    actions: Действие
+    film: Фильмы
+    category: Категории
+    actor: Актеры
+    genre: Жанры
+    siteName: Каталог фильмов
+    rights: © 2014. Все права защищены.
+
+entity:
+    show: Посмотреть
+    edit: Редактировать
+    new: Создать
+
+menu:
+    main: Главная
+    film: Фильмы
+    category: Категории
+    actor: Актеры
+    genre: Жанры
+
+    profile:
+        show: Профиль
+        edit: Редактировать
+        logout: Выход
+
+    registration: Регистрация
+    login: Вход
+
+film:
+    title: Список фильмов
+category:
+    title: Список категорий
+actor:
+    title: Список актеров
+genre:
+    title: Список жанров
+
+locale:
+    title: Язык
+    ru: ru
+    en: en

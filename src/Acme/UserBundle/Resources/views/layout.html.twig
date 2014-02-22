@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+        "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,27 +11,27 @@
 
         <link href="{{ asset('bundles/acmefilms/css/style.css') }}" rel="stylesheet" type="text/css"/>
 
-        <script>
-            function goLogIn(){
-                window.location.href = "{{ path('_security_check') }}";
-            }
+        {#<script>#}
+            {#function goLogIn(){#}
+                {#window.location.href = "{{ path('_security_check') }}";#}
+            {#}#}
 
-            function onFbInit() {
-                if (typeof(FB) != 'undefined' && FB != null ) {
-                    FB.Event.subscribe('auth.statusChange', function(response) {
-                        if (response.session || response.authResponse) {
-                            setTimeout(goLogIn, 500);
-                        } else {
-                            window.location.href = "{{ path('_security_logout') }}";
-                        }
-                    });
-                }
-            }
-        </script>
+            {#function onFbInit() {#}
+                {#if (typeof(FB) != 'undefined' && FB != null ) {#}
+                    {#FB.Event.subscribe('auth.statusChange', function(response) {#}
+                        {#if (response.session || response.authResponse) {#}
+                            {#setTimeout(goLogIn, 500);#}
+                        {#} else {#}
+                            {#window.location.href = "{{ path('_security_logout') }}";#}
+                        {#}#}
+                    {#});#}
+                {#}#}
+            {#}#}
+        {#</script>#}
     </head>
 
     <body>
-        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+        {#{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}#}
 
         <div id="wrapper">
             <div class="navbar navbar-inverse">
@@ -40,16 +40,24 @@
                         <div class="nav-collapse collapse">
                             <ul class="nav">
                                 {% set route = app.request.attributes.get('_route') %}
-                                <li class="{{ route == 'acme_films_homepage' ? 'active' }}"><a href="{{ path('acme_films_homepage') }}"><i class="icon-home icon-white"></i> Главная</a></li>
+                                <li class="{{ route == 'acme_films_homepage' ? 'active' }}"><a href="{{ path('acme_films_homepage') }}"><i class="icon-home icon-white"></i> {{ 'menu.main'|trans({}, 'messages') }}</a></li>
                                 <li class="divider-vertical"></li>
-                                <li class="{{ route == 'film' ? 'active' }}"><a href="{{ path('film') }}">Фильмы</a></li>
+                                <li class="{{ route == 'film' ? 'active' }}"><a href="{{ path('film') }}">{{ 'menu.film'|trans({}, 'messages') }}</a></li>
                                 <li class="divider-vertical"></li>
-                                <li class="{{ route == 'category' ? 'active' }}"><a href="{{ path('category') }}">Категории</a></li>
+                                <li class="{{ route == 'category' ? 'active' }}"><a href="{{ path('category') }}">{{ 'menu.category'|trans({}, 'messages') }}</a></li>
                                 <li class="divider-vertical"></li>
-                                <li class="{{ route == 'actor' ? 'active' }}"><a href="{{ path('actor') }}">Актеры</a></li>
+                                <li class="{{ route == 'actor' ? 'active' }}"><a href="{{ path('actor') }}">{{ 'menu.actor'|trans({}, 'messages') }}</a></li>
                                 <li class="divider-vertical"></li>
-                                <li class="{{ route == 'genre' ? 'active' }}"><a href="{{ path('genre') }}">Жанры</a></li>
+                                <li class="{{ route == 'genre' ? 'active' }}"><a href="{{ path('genre') }}">{{ 'menu.genre'|trans({}, 'messages') }}</a></li>
                                 <li class="divider-vertical"></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if (app.request.locale == 'en') %}
+                                    <li><a href="{{ path(route, {_locale:'ru'}) }}"><i class="icon-flag"></i> {{ 'locale.ru'|trans({}, 'messages') }}</a></li>
+                                {% else %}
+                                    <li><a href="{{ path(route, {_locale:'en'}) }}"><i class="icon-flag"></i> {{ 'locale.en'|trans({}, 'messages') }}</a></li>
+                                {% endif %}
                             </ul>
 
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -60,16 +68,16 @@
                                     <ul class="dropdown-menu">
                                         {#<li><a href="#"><i class="icon-wrench"></i> Settings</a></li>#}
                                         {#<li class="divider"></li>#}
-                                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="icon-share"></i> Профиль</a></li>
-                                        <li><a href="{{ path('fos_user_profile_edit') }}"><i class="icon-share"></i> Редактировать</a></li>
-                                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-share"></i> Выход</a></li>
+                                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> {{ 'menu.profile.show'|trans({}, 'messages') }}</a></li>
+                                        <li><a href="{{ path('fos_user_profile_edit') }}"><i class="icon-wrench"></i> {{ 'menu.profile.edit'|trans({}, 'messages') }}</a></li>
+                                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-share"></i> {{ 'menu.profile.logout'|trans({}, 'messages') }}</a></li>
                                     </ul>
                                 </div>
 
                             {% else %}
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li id="nav-register-btn" class=""><a href="{{ path('fos_user_registration_register') }}">Регистрация</a></li>
-                                    <li id="nav-login-btn" class=""><a href="{{ path('fos_user_security_login') }}"><i class="icon-login"></i>Вход</a></li>
+                                    <li id="nav-register-btn" class=""><a href="{{ path('fos_user_registration_register') }}">{{ 'menu.registration'|trans({}, 'messages') }}</a></li>
+                                    <li id="nav-login-btn" class=""><a href="{{ path('fos_user_security_login') }}"><i class="icon-login"></i> {{ 'menu.login'|trans({}, 'messages') }}</a></li>
                                     <li>{{ facebook_login_button({'autologoutlink': true}) }}</li>
                                 </ul>
                             {% endif %}
@@ -96,7 +104,7 @@
         </div>
 
         <footer class="footer">
-            © 2014. Все права защищены.
+            {{ 'layout.rights'|trans({}, 'messages') }}
         </footer>
     </body>
 </html>

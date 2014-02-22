@@ -1,0 +1,46 @@
+
+layout:
+    id: Id
+    name: Name
+    image: Image
+    actions: Actions
+    film: Films
+    category: Categories
+    actor: Actors
+    genre: Genres
+    siteName: Films catalog
+    rights: © 2014. All rights reserved.
+
+entity:
+    show: Show
+    edit: Edit
+    new: Create
+
+menu:
+    main: Home
+    film: Films
+    category: Categories
+    actor: Actors
+    genre: Genres
+
+    profile:
+        show: Profile
+        edit: Edit
+        logout: Logout
+
+    registration: Registration
+    login: Login
+
+film:
+    title: Films list
+category:
+    title: Categories list
+actor:
+    title: Actors list
+genre:
+    title: Genres list
+
+locale:
+    title: Locale
+    ru: ru
+    en: en
