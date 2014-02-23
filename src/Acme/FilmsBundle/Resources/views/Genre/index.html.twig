@@ -1,14 +1,14 @@
 {% extends 'AcmeFilmsBundle::base.html.twig' %}
 
 {% block body -%}
-    <h1>Genre list</h1>
+    <h1>{{ 'genre.title'|trans({}, 'messages') }}</h1>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th>{{ 'layout.id'|trans({}, 'messages') }}</th>
+                <th>{{ 'layout.name'|trans({}, 'messages') }}</th>
+                <th>{{ 'layout.actions'|trans({}, 'messages') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('genre_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('genre_show', { 'id': entity.id }) }}">{{ 'entity.show'|trans({}, 'messages') }}</a>
                     </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>

@@ -2,16 +2,16 @@
 
 {% block body -%}
 
-    <h1>Genre list</h1>
+    <h1>{{ 'layout.siteName'|trans({}, 'messages') }}</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Categories</th>
-                <th>Genres</th>
-                <th>Actors</th>
+                <th>{{ 'layout.name'|trans({}, 'messages') }}</th>
+                <th>{{ 'layout.category'|trans({}, 'messages') }}</th>
+                <th>{{ 'layout.genre'|trans({}, 'messages') }}</th>
+                <th>{{ 'layout.actor'|trans({}, 'messages') }}</th>
             </tr>
         </thead>
         <tbody>

@@ -1,27 +1,37 @@
 acme_films_homepage:
-    pattern:  /
-    defaults: { _controller: AcmeFilmsBundle:Default:index }
+    pattern:  /{_locale}
+    defaults: { _controller: AcmeFilmsBundle:Default:index, _locale: en }
+    requirements:
+        _locale: en|ru
 
 film:
-    pattern:  /film
-    defaults: { _controller: AcmeFilmsBundle:Film:index }
+    pattern:  /{_locale}/film
+    defaults: { _controller: AcmeFilmsBundle:Film:index, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 film_edit:
-    pattern:  /film/{slug}/edit
-    defaults: { _controller: AcmeFilmsBundle:Film:edit }
+    pattern:  /{_locale}/film/{slug}/edit
+    defaults: { _controller: AcmeFilmsBundle:Film:edit, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 film_new:
-    pattern:  /film/new
-    defaults: { _controller: AcmeFilmsBundle:Film:new }
+    pattern:  /{_locale}/film/new
+    defaults: { _controller: AcmeFilmsBundle:Film:new, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 film_create:
     pattern:  /film
     defaults: { _controller: AcmeFilmsBundle:Film:create }
     methods:  [POST]
 film_show:
-    pattern:  /film/{slug}
-    defaults: { _controller: AcmeFilmsBundle:Film:show }
+    pattern:  /{_locale}/film/{slug}
+    defaults: { _controller: AcmeFilmsBundle:Film:show, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 film_delete:
     pattern:  /film/{slug}
     defaults: { _controller: AcmeFilmsBundle:Film:delete }
@@ -32,25 +42,33 @@ film_update:
     methods:  [PUT]
 
 category:
-    pattern:  /category
-    defaults: { _controller: AcmeFilmsBundle:Category:index }
+    pattern:  /{_locale}/category
+    defaults: { _controller: AcmeFilmsBundle:Category:index, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 category_edit:
-    pattern:  /category/{id}/edit
-    defaults: { _controller: AcmeFilmsBundle:Category:edit }
+    pattern:  /{_locale}/category/{id}/edit
+    defaults: { _controller: AcmeFilmsBundle:Category:edit, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 category_new:
-    pattern:  /category/new
-    defaults: { _controller: AcmeFilmsBundle:Category:new }
+    pattern:  /{_locale}/category/new
+    defaults: { _controller: AcmeFilmsBundle:Category:new, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 category_create:
     pattern:  /category
     defaults: { _controller: AcmeFilmsBundle:Category:create }
     methods:  [POST]
 category_show:
-    pattern:  /category/{id}
-    defaults: { _controller: AcmeFilmsBundle:Category:show }
+    pattern:  /{_locale}/category/{id}
+    defaults: { _controller: AcmeFilmsBundle:Category:show, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 category_delete:
     pattern:  /category/{id}
     defaults: { _controller: AcmeFilmsBundle:Category:delete }
@@ -61,25 +79,33 @@ category_update:
     methods:  [PUT]
 
 actor:
-    pattern:  /actor
-    defaults: { _controller: AcmeFilmsBundle:Actor:index }
+    pattern:  /{_locale}/actor
+    defaults: { _controller: AcmeFilmsBundle:Actor:index, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 actor_edit:
-    pattern:  /actor/{id}/edit
-    defaults: { _controller: AcmeFilmsBundle:Actor:edit }
+    pattern:  /{_locale}/actor/{id}/edit
+    defaults: { _controller: AcmeFilmsBundle:Actor:edit, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 actor_new:
-    pattern:  /actor/new
-    defaults: { _controller: AcmeFilmsBundle:Actor:new }
+    pattern:  /{_locale}/actor/new
+    defaults: { _controller: AcmeFilmsBundle:Actor:new, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 actor_create:
     pattern:  /actor
     defaults: { _controller: AcmeFilmsBundle:Actor:create }
     methods:  [POST]
 actor_show:
-    pattern:  /actor/{id}
-    defaults: { _controller: AcmeFilmsBundle:Actor:show }
+    pattern:  /{_locale}/actor/{id}
+    defaults: { _controller: AcmeFilmsBundle:Actor:show, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 actor_delete:
     pattern:  /actor/{id}
     defaults: { _controller: AcmeFilmsBundle:Actor:delete }
@@ -90,25 +116,33 @@ actor_update:
     methods:  [PUT]
 
 genre:
-    pattern:  /genre
-    defaults: { _controller: AcmeFilmsBundle:Genre:index }
+    pattern:  /{_locale}/genre
+    defaults: { _controller: AcmeFilmsBundle:Genre:index, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 genre_edit:
-    pattern:  /genre/{id}/edit
-    defaults: { _controller: AcmeFilmsBundle:Genre:edit }
+    pattern:  /{_locale}/genre/{id}/edit
+    defaults: { _controller: AcmeFilmsBundle:Genre:edit, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 genre_new:
-    pattern:  /genre/new
-    defaults: { _controller: AcmeFilmsBundle:Genre:new }
+    pattern:  /{_locale}/genre/new
+    defaults: { _controller: AcmeFilmsBundle:Genre:new, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 genre_create:
     pattern:  /genre
     defaults: { _controller: AcmeFilmsBundle:Genre:create }
     methods:  [POST]
 genre_show:
-    pattern:  /genre/{id}
-    defaults: { _controller: AcmeFilmsBundle:Genre:show }
+    pattern:  /{_locale}/genre/{id}
+    defaults: { _controller: AcmeFilmsBundle:Genre:show, _locale: en }
     methods:  [GET]
+    requirements:
+        _locale: en|ru
 genre_delete:
     pattern:  /genre/{id}
     defaults: { _controller: AcmeFilmsBundle:Genre:delete }
