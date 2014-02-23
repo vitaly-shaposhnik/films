@@ -49,20 +49,23 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
+        chain_provider:
+              chain:
+                  providers: [fos_userbundle, my_fos_facebook_provider]
         fos_userbundle:
             id: fos_user.user_provider.username
         my_fos_facebook_provider:
-#            id: my.facebook.user   # see "Example Custom User Provider using the FOS\UserBundle" chapter further down
-            memory:
-                users:
-                    ryan:  { password: ryanpass, roles: 'ROLE_USER' }
-                    admin: { password: kitten, roles: 'ROLE_ADMIN' }
+            id: my.facebook.user   # see "Example Custom User Provider using the FOS\UserBundle" chapter further down
+#            memory:
+#                users:
+#                    ryan:  { password: ryanpass, roles: 'ROLE_USER' }
+#                    admin: { password: kitten, roles: 'ROLE_ADMIN' }
 
     firewalls:
         main:
             pattern: ^/
             form_login:
-                provider: fos_userbundle
+                provider: chain_provider
                 csrf_provider: form.csrf_provider
             logout:       true
             anonymous:    true
@@ -71,7 +74,7 @@ security:
             pattern:   ^/.*
             fos_facebook:
                 app_url: "http://apps.facebook.com/appName/"
-                server_url: "http://localhost/facebookApp/"
+                server_url: "http://localhost/symfony_courses/films/web/app_dev.php"
                 login_path: /login
                 check_path: /login_check
                 default_target_path: /
