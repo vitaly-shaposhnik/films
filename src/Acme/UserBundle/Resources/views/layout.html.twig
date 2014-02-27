@@ -11,23 +11,23 @@
 
         <link href="{{ asset('bundles/acmefilms/css/style.css') }}" rel="stylesheet" type="text/css"/>
 
-        {#<script>#}
-            {#function goLogIn(){#}
-                {#window.location.href = "{{ path('_security_check') }}";#}
-            {#}#}
+        <script>
+            function goLogIn(){
+                window.location.href = "{{ path('facebook_security_check') }}";
+            }
 
-            {#function onFbInit() {#}
-                {#if (typeof(FB) != 'undefined' && FB != null ) {#}
-                    {#FB.Event.subscribe('auth.statusChange', function(response) {#}
-                        {#if (response.session || response.authResponse) {#}
-                            {#setTimeout(goLogIn, 500);#}
-                        {#} else {#}
-                            {#window.location.href = "{{ path('_security_logout') }}";#}
-                        {#}#}
-                    {#});#}
-                {#}#}
-            {#}#}
-        {#</script>#}
+            function onFbInit() {
+                if (typeof(FB) != 'undefined' && FB != null ) {
+                    FB.Event.subscribe('auth.statusChange', function(response) {
+                        if (response.session || response.authResponse) {
+                            setTimeout(goLogIn, 500);
+                        } else {
+                            window.location.href = "{{ path('facebook_security_logout') }}";
+                        }
+                    });
+                }
+            }
+        </script>
     </head>
 
     <body>

@@ -1,45 +1,3 @@
-#security:
-#    encoders:
-#        Symfony\Component\Security\Core\User\User: plaintext
-#
-#    role_hierarchy:
-#        ROLE_ADMIN:       ROLE_USER
-#        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-#
-#    providers:
-#        in_memory:
-#            memory:
-#                users:
-#                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-#                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-#
-#    firewalls:
-#        dev:
-#            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-#            security: false
-#
-#        login:
-#            pattern:  ^/demo/secured/login$
-#            security: false
-#
-#        secured_area:
-#            pattern:    ^/demo/secured/
-#            form_login:
-#                check_path: _security_check
-#                login_path: _demo_login
-#            logout:
-#                path:   _demo_logout
-#                target: _demo
-#            #anonymous: ~
-#            #http_basic:
-#            #    realm: "Secured Demo Area"
-#
-#    access_control:
-#        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
-#        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-
-
-
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
@@ -65,33 +23,17 @@ security:
         main:
             pattern: ^/
             form_login:
-                provider: chain_provider
+                provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-            logout:       true
-            anonymous:    true
-        public:
-            # since anonymous is allowed users will not be forced to login
-            pattern:   ^/.*
             fos_facebook:
                 app_url: "http://apps.facebook.com/appName/"
-                server_url: "http://localhost/symfony_courses/films/web/app_dev.php"
+                server_url: "http://films.local/"
                 login_path: /login
-                check_path: /login_check
+                check_path: /facebook-check
                 default_target_path: /
                 provider: my_fos_facebook_provider
-            anonymous: true
-#        secured_area:
-#            anonymous: ~
-#            oauth:
-#                resource_owners:
-##                    facebook:           "/login/check-facebook"
-#                    google:             "/login/check-google"
-##                    my_custom_provider: "/login/check-custom"
-##                    my_github:          "/login/check-github"
-#                login_path:        /login
-#                failure_path:      /login
-#                oauth_user_provider:
-#                    service: my.oauth_aware.user_provider.service
+            logout:       true
+            anonymous:    true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
