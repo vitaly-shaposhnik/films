@@ -98,11 +98,18 @@ fos_user:
 
 fos_facebook:
     alias:  facebook
-    app_id: 123456879
-    secret: s3cr3t
+    app_id: 368770813261373
+    secret: 63b3774aa031154929216f1f1033262a
     cookie: true
     permissions: [email, user_birthday, user_location]
 
+services:
+        my.facebook.user:
+            class: Acme\FilmsBundle\Security\User\Provider\FacebookProvider
+            arguments:
+                facebook: "@fos_facebook.api"
+                userManager: "@fos_user.user_manager"
+                validator: "@validator"
 
 #hwi_oauth:
 #    # name of the firewall in which this bundle is active, this setting MUST be set
