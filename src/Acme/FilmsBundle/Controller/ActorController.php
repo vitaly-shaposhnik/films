@@ -177,6 +177,8 @@ class ActorController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+//            $entity->setLocale($request->getLocale());
+            $em->persist($entity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('actor_edit', array('id' => $id)));

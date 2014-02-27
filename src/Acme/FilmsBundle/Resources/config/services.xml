@@ -63,5 +63,12 @@
         <service id="acme_films.logger" class="Acme\FilmsBundle\Service\Logger">
             <tag name="kernel.event_listener" event="element.create" method="log" />
         </service>
+
+        <service id="my.facebook.user"
+                 class="Acme\FilmsBundle\Security\User\Provider\FacebookProvider">
+            <argument type="service" id="fos_facebook.api" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="validator" />
+        </service>
     </services>
 </container>
