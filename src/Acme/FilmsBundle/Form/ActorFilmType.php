@@ -15,6 +15,7 @@ class ActorFilmType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('locale', 'locale')
             ->add('name')
             ->add('films')
         ;
